@@ -1,0 +1,28 @@
+.columna-planeta{
+    background-color: black;
+
+}
+   
+.columna-persona{
+    background-color: black;
+}
+
+.columna-vehiculo{
+    background-color: black;
+}
+
+.tarjeta-pl{
+background-color: blue;
+}
+
+.tarjeta-pers{
+background-color: red;
+}
+
+.tarjeta-v{
+background-color: rgb(56, 206, 56);
+}
+
+.button:hover{
+    background-color: rgb(204, 204, 55);
+}

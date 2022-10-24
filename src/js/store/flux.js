@@ -12,9 +12,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
-		},
+			],
+		
+		favoritos: [
+			{
+				uid:1,
+				nombre: "Cortes",
+			},
+			{
+				uid: 2,
+				nombre: "Rafi",
+			}
+		]
+	},
 		actions: {
+			agregarFavoritos: (nombre) => {
+				console.log({nombre});
+				const store = getstore();
+
+				const auxFavoritos = [...store.favoritos];
+				auxFavoritos.push({
+					uid: auxFavoritos.length + 1,
+					nombre,
+				});
+				console.log({ auxFavoritos})
+				setStore({ favoritos: auxFavoritos});
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
