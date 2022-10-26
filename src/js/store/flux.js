@@ -13,30 +13,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-		
-		favoritos: [
-			{
-				uid:1,
-				nombre: "Cortes",
-			},
-			{
-				uid: 2,
-				nombre: "Rafi",
-			}
-		]
+		favoritos: [],
+		// favoritos: [
+		// 	{
+		// 		uid:1,
+		// 		nombre: "Cortes",
+		// 	},
+		// 	{
+		// 		uid: 2,
+		// 		nombre: "Rafi",
+		// 	}
+		// ]
 	},
 		actions: {
-			agregarFavoritos: (nombre) => {
-				console.log({nombre});
-				const store = getstore();
-
+			agregarFavoritos: (obj) => {
+				const store = getStore();
 				const auxFavoritos = [...store.favoritos];
 				auxFavoritos.push({
 					uid: auxFavoritos.length + 1,
-					nombre,
+					nombre: obj.name,
 				});
 				console.log({ auxFavoritos})
 				setStore({ favoritos: auxFavoritos});
+			},
+			eliminarFavoritos(obj) {
+				console.log({obj})
+				const store = getStore()
+				const auxFavoritos = store.favoritos.filter((favorito) => {
+					return favorito.uid !== obj.uid
+				})
+				console.log({ auxFavoritos })
+				setStore({ favoritos: auxFavoritos })
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
